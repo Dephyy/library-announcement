@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-legacy: #f6f1ef;
+    --surface-legacy: #ffffff;
+    --text-legacy: #231f20;
+    --primary-legacy: #8f1d2c;
+    --primary-strong-legacy: #701423;
+    --border-legacy: #e7d6d9;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-secondary;
+  }
+}
+
+/* Legacy pages outside Atheneum (documents, login, portal, health) */
+.page-shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  padding: clamp(0.75rem, 2.5vw, 1.25rem);
+  padding-bottom: max(clamp(0.75rem, 2.5vw, 1.25rem), env(safe-area-inset-bottom, 0px));
+  background: var(--bg-legacy);
+  color: var(--text-legacy);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-shell .container {
+  width: 100%;
+  max-width: min(1100px, 100%);
+  margin: 0 auto;
+}
+
+.page-shell .topbar {
+  margin-bottom: 1rem;
+  background: #fff;
+  border: 1px solid var(--border-legacy);
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.page-shell .brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.page-shell .brand-title {
+  font-weight: 800;
+  color: var(--primary-strong-legacy);
+}
+
+.page-shell .brand-subtitle {
+  font-size: 0.85rem;
+  color: #5f5658;
+}
+
+.page-shell .main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.page-shell .session-badge {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary-strong-legacy);
+  background: #fdf9f8;
+  border: 1px solid var(--border-legacy);
+  border-radius: 999px;
+  padding: 0.25rem 0.65rem;
+}
+
+.page-shell .hero {
+  margin-bottom: 1rem;
+  padding: 1rem 0;
+}
+
+.page-shell .hero h1 {
+  margin: 0 0 0.5rem;
+  color: var(--primary-strong-legacy);
+}
+
+.page-shell .hero p {
+  margin: 0;
+  color: #5f5658;
+}
+
+.page-shell .panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-shell .panel-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.page-shell .section-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--primary-legacy);
+  background: #fdf9f8;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+}
+
+.page-shell .search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.page-shell .forum-main h2,
+.page-shell .forum-main h3 {
+  margin-top: 0;
+}
+
+.page-shell .narrow-container {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.page-shell .login-panel {
+  max-width: 100%;
+}
+
+.page-shell .login-title {
+  margin: 0 0 0.5rem;
+  font-size: 1.5rem;
+  color: var(--primary-strong-legacy);
+}
+
+.page-shell .login-subtitle {
+  margin: 0 0 1rem;
+  color: #5f5658;
+}
+
+.page-shell .credentials-box {
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  border: 1px dashed var(--border-legacy);
+  background: #fdf9f8;
+  font-size: 0.9rem;
+}
+
+.page-shell .credentials-box p {
+  margin: 0.35rem 0 0;
+}
+
+.page-shell .text-area {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.page-shell .status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.page-shell .status-card {
+  background: var(--surface-legacy);
+  border: 1px solid var(--border-legacy);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.page-shell .status-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5f5658;
+}
+
+.page-shell .status-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-strong-legacy);
+}
+
+.page-shell .status-ok {
+  color: #1f7a4a;
+}
+
+.page-shell .status-bad {
+  color: #8f1d2c;
+}
+
+.page-shell .content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.page-shell .quick-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.page-shell a {
+  color: var(--primary-legacy);
+}
+
+.page-shell .panel {
+  background: var(--surface-legacy);
+  border: 1px solid var(--border-legacy);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.page-shell .btn {
+  background: var(--primary-legacy);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.page-shell input,
+.page-shell textarea {
+  width: 100%;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid var(--border-legacy);
+  border-radius: 8px;
+}
+
+.page-shell .search-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-shell .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.page-shell .list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.page-shell .list-item {
+  border-bottom: 1px solid var(--border-legacy);
+  padding: 0.75rem 0;
+}
+
+.page-shell .list-item:last-child {
+  border-bottom: none;
+}
+
+.page-shell .meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.page-shell .meta-chip {
+  font-size: 0.85rem;
+  color: #5f5658;
+  background: #fdf9f8;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.page-shell .nav-link {
+  color: var(--primary-legacy);
+  text-decoration: none;
+}
+
+.page-shell .nav-link:hover {
+  text-decoration: underline;
+}
+
+.page-shell .empty {
+  color: #5f5658;
+}
+
+.page-shell .success-msg {
+  color: #1f7a4a;
+}
+
+.page-shell .login-error {
+  color: #8f1d2c;
+}
+
+.page-shell .pager {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.page-shell .pager .disabled {
+  color: #999;
+}
+
